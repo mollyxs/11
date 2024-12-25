@@ -5,7 +5,6 @@ import asyncio
 from subprocess import call
 
 
-DATA_DIR = "data"
 
 # Функция для проверки и установки недостающих библиотек
 def install_required_libraries():
