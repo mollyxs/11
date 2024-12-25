@@ -1,0 +1,37 @@
+import os
+import sys
+import json
+import asyncio
+from subprocess import call
+import signal
+
+
+DATA_DIR = "data"
+
+# Функция для проверки и установки недостающих библиотек
+def install_required_libraries():
+    required_libraries = [
+        ("colorlog", "colorlog"),
+        ("aiohttp", "aiohttp"),
+        ("dotenv", "python-dotenv"),
+        ("telegram", "python-telegram-bot"),
+        ("nest_asyncio", "nest_asyncio")
+    ]
+    for package_name, install_name in required_libraries:
+        try:
+            __import__(package_name)
+        except ImportError:
+            print(f"Устанавливаем библиотеку: {package_name} ({install_name})")
+            call([sys.executable, "-m", "pip", "install", install_name])
+
+# Выполняем проверку и установку библиотек перед их использованием
+install_required_libraries()
+
+# Импорты после установки библиотек
+from bot.utils.logger import dev_logger, user_logger
+import colorlog
+import aiohttp
+from dotenv import load_dotenv
+from telegram import Update, Bot
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import nest_asyncio
