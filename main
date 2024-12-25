@@ -26,3 +26,18 @@ def install_required_libraries():
 
 # Выполняем проверку и установку библиотек перед их использованием
 install_required_libraries()
+
+# Импорты после установки библиотек
+from bot.utils.logger import dev_logger, user_logger
+import colorlog
+import aiohttp
+from dotenv import load_dotenv
+from telegram import Update, Bot
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import nest_asyncio
+
+# Логирование после успешного импорта
+user_logger.info("Все библиотеки успешно установлены и импортированы.")
+
+# Применяем патч для устранения проблем с уже запущенным event loop
+nest_asyncio.apply()
