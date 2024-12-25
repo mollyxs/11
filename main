@@ -3,7 +3,6 @@ import sys
 import json
 import asyncio
 from subprocess import call
-import signal
 
 
 DATA_DIR = "data"
