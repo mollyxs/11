@@ -12,7 +12,6 @@ def install_required_libraries():
         ("aiohttp", "aiohttp"),
         ("dotenv", "python-dotenv"),
         ("telegram", "python-telegram-bot"),
-        ("nest_asyncio", "nest_asyncio")
     ]
     for package_name, install_name in required_libraries:
         try:
