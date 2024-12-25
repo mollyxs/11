@@ -24,7 +24,7 @@ def install_required_libraries():
 install_required_libraries()
 
 # Импорты после установки библиотек
-from bot.utils.logger import dev_logger, user_logger
+from bot.utils.logger import dev_logger, user_logge
 import colorlog
 import aiohttp
 from dotenv import load_dotenv
