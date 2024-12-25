@@ -13,8 +13,6 @@ def install_required_libraries():
         ("dotenv", "python-dotenv"),
         ("telegram", "python-telegram-bot"),
     ]
-    for package_name, install_name in required_libraries:
-        try:
             __import__(package_name)
         except ImportError:
             print(f"Устанавливаем библиотеку: {package_name} ({install_name})")
